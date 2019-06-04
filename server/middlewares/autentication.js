@@ -20,19 +20,10 @@ let verificaToken = (req, res, next)=>{
 }
 
 let validAdminRole = (req, res, next)=>{
-    let token = req.get('token');
-    jwt.verify(token, process.env.SEED, (err, decode) => {
+    
+    let usuarioLogin = req.usuario;
 
-    let usuarioLogin = decode.usuario;
-    if(err){
-        return res.status(401).json({
-            ok:false, //retorna err
-            err
-        })    
-    }
-
-    if(usuarioLogin.role == "ADMIN_ROLE"){
-        req.usuario = usuarioLogin;     
+    if(usuarioLogin.role == "ADMIN_ROLE"){    
         next();
     } else {
         return res.json({
@@ -41,8 +32,6 @@ let validAdminRole = (req, res, next)=>{
         });
         
     }
- })
-
 };
 
 module.exports = {

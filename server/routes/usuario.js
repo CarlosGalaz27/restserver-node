@@ -50,7 +50,7 @@ app.get('/usuario', verificaToken , (req, res) => {
   
 })
 
-app.post('/usuario', validAdminRole , function (req, res) {
+app.post('/usuario', [verificaToken, validAdminRole] , function (req, res) {
    
   let body = req.body;
   
@@ -77,7 +77,7 @@ app.post('/usuario', validAdminRole , function (req, res) {
 	})
 })
 
-app.put('/usuario/:id', validAdminRole , function (req, res) {
+app.put('/usuario/:id', [verificaToken, validAdminRole] , function (req, res) {
   
   let id = req.params.id;
   //captura id desde url
@@ -102,7 +102,7 @@ app.put('/usuario/:id', validAdminRole , function (req, res) {
   })
 })
 
-app.delete('/usuario/:id', verificaToken , function (req, res) {
+app.delete('/usuario/:id', [verificaToken, validAdminRole] , function (req, res) {
   
 	let id = req.params.id;
 	let cambiaEstado = {
