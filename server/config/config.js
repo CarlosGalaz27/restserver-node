@@ -9,7 +9,7 @@ process.env.PORT = process.env.PORT || 3000;
 //EXPIRACION TOKENS
 //===================
 
-process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
+process.env.CADUCIDAD_TOKEN = '48h';
 //=====================
 //SEED DE TOKENS
 //===================
@@ -22,6 +22,12 @@ process.env.SEED = process.env.SEED || 'seed-desarrollo';
 
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
+
+//=====================
+//Cliente de google
+//===================
+
+process.env.CLIEN_ID = process.env.CLIEN_ID || '1001042711083-c2tjapth8fq5f8hl19biej0d35gel56c.apps.googleusercontent.com'
 
 
 //=====================
